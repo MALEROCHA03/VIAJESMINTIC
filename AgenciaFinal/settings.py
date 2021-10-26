@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-0u2!pm#1**y-@zjpe&2v5o51y87dre6@a&hwuy_-bxv^z-gq8h
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
@@ -36,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'authApp.apps.AuthappConfig'
+    'authApp.apps.AuthappConfig',
+    'corsheaders',
 ]
 
 SIMPLE_JWT = {
@@ -59,7 +61,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
+
+
+
+
 AUTH_USER_MODEL = 'authApp.Usuarios'
 ROOT_URLCONF = 'AgenciaFinal.urls'
 
